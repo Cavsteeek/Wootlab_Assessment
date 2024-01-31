@@ -1,3 +1,4 @@
+// Task class to represent individual tasks
 public class Task{
     private String title;
     private boolean status;
