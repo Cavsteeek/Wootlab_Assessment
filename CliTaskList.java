@@ -44,7 +44,7 @@ public class CliTaskList {
                     displayTask();
                     break;
                 case 3:
-
+                    markAsCompleted();
                     break;
                 case 4:
                     System.out.println("Exiting program. Goodbye!");
@@ -69,6 +69,20 @@ public class CliTaskList {
             System.out.println(i + 1 + ". " + task.getTitle() + "\nStatus (Completed?): " + task.taskStatus());
             System.out.println();
         }
+    }
+
+    private static void markAsCompleted(){
+        System.out.println("Enter the index of the task to mark as completed");
+        displayTask();
+        System.out.print(": ");
+        int userChoice = userInput.nextInt();
+        int index = userChoice - 1;
+        if(index >= 0 && index < taskList.size() + 1){
+            Task task = taskList.get(index);
+            task.setTaskStatus(true);
+            System.out.println("Task successfully marked as complete");
+            System.out.println();
+        }else System.out.println("Invalid index, try again");
     }
 
 }
